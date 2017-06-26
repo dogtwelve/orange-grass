@@ -1,4 +1,5 @@
-LOCAL_PATH := $(realpath $(call my-dir)/..)
+#LOCAL_PATH := $(realpath $(call my-dir)/..)
+LOCAL_PATH := $(call host-path, $(call my-dir)/..)
 ENGINEDIR := $(LOCAL_PATH)/sources/engine
 GAMEDIR := $(LOCAL_PATH)/sources/skycrasher
 
@@ -16,7 +17,8 @@ LOCAL_CFLAGS += -fno-stack-protector
 endif
 
 LOCAL_MODULE     := liborangegrass
-LOCAL_CFLAGS     := -Werror -std=gnu++11
+LOCAL_CFLAGS     := -w
+LOCAL_CPPFLAGS   := -std=gnu++11
 LOCAL_C_INCLUDES += $(ENGINEDIR)/include \
                     $(GAMEDIR)/game/include
 LOCAL_LDLIBS     := -llog -lGLESv2 -lEGL
